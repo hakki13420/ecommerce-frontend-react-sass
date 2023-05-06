@@ -1,0 +1,10 @@
+
+.filters{
+    background-color: red;
+    padding:20px 80px;
+    width: 100%;
+    @include flex(row, space-between, center);
+    .option{
+        @include flex(row, center, center,10px);
+    }
+}

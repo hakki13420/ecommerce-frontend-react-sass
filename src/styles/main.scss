@@ -1,0 +1,11 @@
+
+@import './general';
+@import './mixins';
+@import './products.scss';
+@import './filters.scss';
+
+
+.app{
+
+    @include flex(column, center, center);
+}

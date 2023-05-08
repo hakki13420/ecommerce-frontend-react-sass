@@ -22,13 +22,14 @@ const Filters = () => {
     <div className='filters'>
       <div className='option'>
         <label htmlFor='range'>Price</label>
-        <input type='range' name='price' id='range' min='0' max='1000' onChange={handelChange} />
+        <input type='range' name='price' id='range' value={filters.price} min='0' max='1000' onChange={handelChange} />
         <span>{filters.price} $</span>
       </div>
       <div className='option' />
       <select name='category' id='category' onChange={handelChange}>
+        <option key='all' value='all'>all</option>
         {
-            categories.map(cat => <option key={cat} value={cat}>{cat}</option>)
+          categories.map(cat => <option key={cat} selected={cat === filters.category} value={cat}>{cat}</option>)
         }
       </select>
     </div>

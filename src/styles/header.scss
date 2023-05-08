@@ -1,0 +1,14 @@
+.header{
+    background-color: gray;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 10px 80px;
+    @include flex(column, unset, unset, 20px);
+    &__nav{
+        @include flex(row, space-between, center);
+    }
+    nav{
+        @include flex(row, center, center, 10px);
+    }
+}

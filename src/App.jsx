@@ -1,17 +1,23 @@
-import React, { useState } from 'react'
-import Filters from './components/Filters'
-import { products } from './data/data.json'
+import React from 'react'
+
+import Footer from './components/Footer'
+import { IS_DEVELOPMENT } from './config'
 
 import Products from './components/Products'
-import { useFilter } from './hooks/useFilter'
+import Header from './components/Header'
+import Cart from './components/Cart'
+import { CartContextProvider } from './context/cart'
 
 function App () {
-  const { filters, setFilters, filtredProducts } = useFilter()
   return (
-    <div className='app'>
-      <Filters filters={filters} setFilters={setFilters} />
-      <Products />
-    </div>
+    <CartContextProvider>
+      <div className='app'>
+        <Header />
+        <Cart />
+        <Products />
+        {IS_DEVELOPMENT && <Footer />}
+      </div>
+    </CartContextProvider>
   )
 }
 

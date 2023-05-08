@@ -2,10 +2,20 @@
 @import './general';
 @import './mixins';
 @import './products.scss';
+@import './header.scss';
 @import './filters.scss';
+@import './footer.scss';
+@import './cart.scss';
+
 
 
 .app{
-
     @include flex(column, center, center);
+    padding: 20px;
+    &::before{
+        content: '';
+        height: 40px;
+        width: 100%;
+        display: block;
+    }
 }

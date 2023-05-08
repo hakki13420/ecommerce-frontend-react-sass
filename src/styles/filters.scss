@@ -1,9 +1,7 @@
 
-.filters{
-    background-color: red;
-    padding:20px 80px;
-    width: 100%;
-    @include flex(row, space-between, center);
+.filters{    
+   
+    @include flex(row, flex-end, center,40px);
     .option{
         @include flex(row, center, center,10px);
     }

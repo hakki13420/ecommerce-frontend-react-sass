@@ -1,36 +1,33 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useReducer } from 'react'
+import { initialSate, cartReducer, Actions } from '../reducers/cart'
 
 export const cartContext = createContext()
 
 export const CartContextProvider = ({ children }) => {
-  const [cart, setCart] = useState([])
+  const [state, dispatch] = useReducer(cartReducer, initialSate)
 
   const addToCart = (product) => {
-    const checkProductIndex = cart.findIndex(el => el.id === product.id)
-    if (checkProductIndex >= 0) {
-      const deepCopyCart = JSON.parse(JSON.stringify(cart))
-      console.log(checkProductIndex)
-      deepCopyCart[checkProductIndex].quantity += 1
-      setCart(deepCopyCart)
-    } else {
-      setCart(prev => [...prev, { ...product, quantity: 1 }])
-    }
+    return dispatch({
+      type: Actions.ADD_TO_CART,
+      payload: product
+    })
   }
 
   const removeToCart = (id) => {
-    const filtredCart = cart.find(item => item.id === id)
-    if (filtredCart.quantity > 1) {
-      filtredCart.quantity -= 1
-      setCart(cart.map(item => item.id === id ? filtredCart : item))
-    } else setCart(cart.filter(item => item.id !== id))
+    return dispatch({
+      type: Actions.REMOVE_FROM_CART,
+      payload: id
+    })
   }
 
   const resetCart = () => {
-    setCart([])
+    return dispatch({
+      type: Actions.RESET_CART
+    })
   }
 
   return (
-    <cartContext.Provider value={{ cart, setCart, addToCart, removeToCart, resetCart }}>
+    <cartContext.Provider value={{ cart: state, addToCart, removeToCart, resetCart }}>
       {children}
     </cartContext.Provider>
   )

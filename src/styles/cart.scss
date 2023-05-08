@@ -1,3 +1,4 @@
+
 .cart{    
     background-color: gray;    
     padding: 80px 10px 0;
@@ -5,12 +6,22 @@
     position: fixed;
     top: 0;
     right: 0;
+    height: 100vh;
     transition: 0.4s ease all;
     @include flex(column, center, center);
     display: none;
-    overflow: hidden;
+    overflow-y: scroll;
     z-index: 2;
-    
+    &__header{
+        @include flex(row, space-between, center);
+       padding: 10px 0;
+       i{
+        cursor: pointer;
+        &:hover{
+            color: red
+        }
+       }
+    }
     &__item{
         @include flex(row, space-between, center);
         border-bottom: 1px solid white;
@@ -49,7 +60,7 @@
 
 
 .cart-btn{
-    position: absolute;
+    position: fixed;
     top: 15px;
     right: 20px;
     width: 30px;
@@ -67,7 +78,7 @@
     }
 }
 .badge{
-    position: absolute;
+    position: fixed;
     top: 10px;
     right: 20px;
     height: 15px;

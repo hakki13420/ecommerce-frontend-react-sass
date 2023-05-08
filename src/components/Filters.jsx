@@ -29,7 +29,7 @@ const Filters = () => {
       <select name='category' id='category' onChange={handelChange}>
         <option key='all' value='all'>all</option>
         {
-          categories.map(cat => <option key={cat} selected={cat === filters.category} value={cat}>{cat}</option>)
+          categories.map(cat => <option key={cat} value={cat}>{cat}</option>)
         }
       </select>
     </div>

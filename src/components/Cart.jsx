@@ -34,7 +34,7 @@ const CartItem = (props) => {
 }
 
 const Cart = () => {
-  const { cart } = useContext(cartContext)
+  const { cart, resetCart } = useContext(cartContext)
   return (
     <>
       <label htmlFor='cart-menu' className='cart-btn'>
@@ -43,11 +43,15 @@ const Cart = () => {
       <input type='checkbox' id='cart-menu' hidden />
       <span className='badge'>{cart.length}</span>
       <div className='cart'>
-
+        <div className='cart__header'>
+          <h5>Cart Content</h5>
+          <i className='ri-refresh-line' onClick={() => resetCart()} />
+        </div>
+        <hr />
         {
           cart.length
             ? cart.map((item, index) => {
-              return <CartItem index={index} {...item} />
+              return <CartItem key={item.id} index={index} {...item} />
             })
             : 'no items'
         }

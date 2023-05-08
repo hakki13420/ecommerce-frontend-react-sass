@@ -5,8 +5,12 @@
     top: 0;
     padding: 10px 80px;
     @include flex(column, unset, unset, 20px);
+    color: white;
     &__nav{
         @include flex(row, space-between, center);
+        a{
+            color: wheat
+        }
     }
     nav{
         @include flex(row, center, center, 10px);

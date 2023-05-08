@@ -1,7 +1,7 @@
 
 .filters{    
    
-    @include flex(row, flex-end, center,40px);
+    @include flex(row, flex-start, center,40px);
     .option{
         @include flex(row, center, center,10px);
     }
